@@ -1,0 +1,28 @@
+name: Hemeraday - PR validation
+
+on:
+    pull_request: 
+        branches: 'main'
+
+jobs: 
+
+    # Verify build 
+    Build-and-run-Vercel:
+        name: 'Validate Vercel build before push to main'
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            # Setup node
+            - name: Install Node.js
+              uses: actions/setup-node@v2
+              with:
+                node-version: 20.x
+            
+            # Install and test build
+            - name: Build and run app
+              run: |
+                npm install 
+                npm run next build
+              
