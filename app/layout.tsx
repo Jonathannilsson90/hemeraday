@@ -19,9 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="">
-          <Link href="/"> Home </Link>
-          <Link href="/jonpage"> Jonpage </Link>
-          <Link href="/yuliapage"> Yuliapage </Link>
+          <button type="button" className="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br  focus:outline-none focus:ring-lime-300  shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-7 py-2.5 text-center me-5 mb-5 min-w-[100px]"><Link href="/"> Home </Link></button>
+          <Link href="/jonpage" > Jonpage </Link>
+          <Link href="/yuliapage" > Yuliapage </Link>
         </div> 
         {children}
       </body>
