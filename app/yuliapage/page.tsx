@@ -25,12 +25,12 @@ export default function YuliaPage() {
   if (!date) {
     return <div>Loading...</div>;
   }
-  
+
   return (
     <div className="h-[85vh] box-border w-[100vw] bg-gray-300  flex flex-col justify-center items-center">
-      <div className="2xl:h-[1024px] 2xl:w-[1440px] xl:h-[620px] xl:w-[1133px] bg-gradient-to-r from-red-200 to-cyan-200  flex flex-row justify-between items-center">
-        <div className="2xl:h-[956px] 2xl:w-[369px] xl:h-[566px] xl:w-[224px] flex flex-col justify-center items-center bg-cyan-600 ml-[10px] rounded-[20px]">
-          <div className="2xl:h-[936px] 2xl:w-[349px] xl:h-[546px] xl:w-[204px] flex flex-row justify-center justify-center items-left">
+      <div className="2xl:h-[1024px] 2xl:w-[1440px] xl:h-[620px] xl:w-[1133px] bg-gradient-to-r from-red-200 to-cyan-200 flex flex-row justify-between items-center">
+        <div className="2xl:h-[956px] 2xl:w-[369px] xl:h-[566px] xl:w-[224px] flex flex-col justify-center items-center bg-cyan-600 ml-[10px]rounded-[20px]">
+          <div className="2xl:h-[936px] 2xl:w-[349px] xl:h-[546px] xl:w-[204px] flex flex-row justify-center justify-cente items-left">
             <Image
               className="h-full rounded-[20px]"
               src={AprilImage}
