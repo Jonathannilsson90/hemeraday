@@ -10,6 +10,7 @@ export default function YuliaPage() {
   const startDate = new Date();
   const events: any = [];
   const [cellSize, setCellSize] = useState({ width: 0, height: 0 });
+  const [weekSellSize, setWeekCellSize] = useState({ width: 0, height: 0 });
   //const [pictureWidth, setPictureWidth] = useState(0); //TODO: count picture size
   const calendarRef = useRef<InstanceType<typeof DayPilotCalendar>>(null);
 
@@ -36,8 +37,10 @@ export default function YuliaPage() {
       const height = window.innerHeight;
       const cellWidth = Math.max(28, Math.floor(width / 50));
       const cellHeight = Math.max(28, Math.floor(height / 30));
-
       setCellSize({ width: cellWidth, height: cellHeight });
+      const weekCellWidth = Math.max(28, Math.floor(width / 50));
+      const weekCellHeight = Math.max(28, Math.floor(height / 30));
+      setWeekCellSize({ width: weekCellWidth, height: weekCellHeight });
     };
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -88,25 +91,34 @@ export default function YuliaPage() {
               />
             </div>
           </div>
-          <div className="absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px]  flex flex-col justify-center items-center">
-              <button className="w-[80%] h-[40px] bg-yellow-400 rounded-[20px] hover:bg-yellow-500 transition-bg duration-200 opacity-50 hover:opacity-80 transition-opacity duration-200 my-2">
-                Birthdays
-              </button>
-              <button className="w-[80%] h-[40px] bg-red-400 rounded-[20px] hover:bg-red-500 transition-bg duration-200 opacity-50 hover:opacity-80 transition-opacity duration-200 my-2">
-                Weather
-              </button>
-              <button className="w-[80%] h-[40px] bg-lime-400 rounded-[20px] hover:bg-lime-500 transition-bg duration-200 opacity-50 hover:opacity-80 transition-opacity duration-200 my-2">
-                Swidish Holidays
-              </button>
-              <button className="w-[80%] h-[40px] bg-cyan-400 rounded-[20px] hover:bg-cyan-500 transition-bg duration-200 opacity-50 hover:opacity-80 transition-opacity duration-200 my-2">
-                Worldwide Holidays
-              </button>
-            </div>
+          <div className="absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full flex flex-col justify-center items-center">
+            <button className="w-[70%] h-[40px] bg-yellow-400 rounded-[10px] hover:bg-yellow-500 transition-bg duration-200 opacity-50 hover:opacity-80 transition-opacity duration-200 my-2">
+              Birthdays
+            </button>
+            <button className="w-[70%] h-[40px] bg-red-400 rounded-[10px] hover:bg-red-500 transition-bg duration-200 opacity-50 hover:opacity-80 transition-opacity duration-200 my-2">
+              Weather
+            </button>
+            <button className="w-[70%] h-[40px] bg-lime-400 rounded-[10px] hover:bg-lime-500 transition-bg duration-200 opacity-50 hover:opacity-80 transition-opacity duration-200 my-2">
+              Swidish Holidays
+            </button>
+            <button className="w-[70%] h-[40px] bg-cyan-400 rounded-[10px] hover:bg-cyan-500 transition-bg duration-200 opacity-50 hover:opacity-80 transition-opacity duration-200 my-2">
+              Worldwide Holidays
+            </button>
+          </div>
         </div>
         {/* /calendar area*/}
         <div className="xl:w-[75%] 2xl:w-[75%] h-full flex flex-col justify-top items-center">
-          <h1 className="mt-[20px] italic">{months[date.getMonth()]} {date.getFullYear()}, {days[date.getDay()]} </h1>
-          <h2 className="mt-[20px]">Time: {date.getHours()} : {date.getMinutes()} :: {date.getSeconds()}</h2>
+          <div className="flex flex-row justify-top items-center font-bold h-[10%]">
+            <h1 className="mt-[20px] italic mr-4">{months[date.getMonth()]} {date.getFullYear()}, {days[date.getDay()]} </h1>
+            <h2 className="mt-[20px] italic">Time: {date.getHours()} : {date.getMinutes()} :: {date.getSeconds()}</h2>
+          </div>
+          <div className="mx-2 my-2 flex flex-col justify-center items-center h-[90%]">
+            <DayPilotCalendar
+              viewType={"Week"}
+              cellWidth={weekSellSize.width}
+              cellHeight={weekSellSize.height}
+            />
+          </div>
         </div>
       </div>
     </div>
